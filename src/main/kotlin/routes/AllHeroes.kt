@@ -9,7 +9,7 @@ import org.koin.ktor.ext.inject
 
 fun Route.getAllHeroes() {
     // Singleton instance of HeroRepo from koin
-    val heroRepository: HeroRepo by inject()
+    val heroRepository: HeroRepo by inject() // The error is here
 
     get("/boruto/heroes") {
         try {
