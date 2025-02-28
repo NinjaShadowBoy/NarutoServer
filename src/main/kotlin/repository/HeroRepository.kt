@@ -408,6 +408,21 @@ class HeroRepository: HeroRepo {
     }
 
     override suspend fun searchHeroes(name: String): ApiResponse {
-        return ApiResponse(success = false)
+        return ApiResponse(
+            success = true,
+            message = "Ok for search: $name",
+            heroes = findHeroes(name)
+        )
+    }
+
+    private fun findHeroes(name: String?): List<Hero> {
+        return if(!name.isNullOrBlank()){
+            heroes
+                .flatMap { it.value }
+                .filter { it.name.contains(name, ignoreCase = true) }
+                .sortedBy { it.name }
+        } else {
+            emptyList()
+        }
     }
 }

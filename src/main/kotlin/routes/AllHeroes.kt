@@ -5,11 +5,11 @@ import com.example.repository.HeroRepo
 import io.ktor.http.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import org.koin.ktor.ext.inject
+import org.koin.ktor.ext.*
 
 fun Route.getAllHeroes() {
     // Singleton instance of HeroRepo from koin
-    val heroRepository: HeroRepo by inject() // The error is here
+    val heroRepository: HeroRepo by application.inject() // The error is here
 
     get("/boruto/heroes") {
         try {

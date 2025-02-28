@@ -47,6 +47,9 @@ dependencies {
     // Default Headers
     implementation("io.ktor:ktor-server-default-headers:$ktorVersion")
 
+    // Status Pages
+    implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
+
     testImplementation("io.ktor:ktor-server-test-host")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
 }
